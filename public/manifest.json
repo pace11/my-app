@@ -3,7 +3,7 @@
   "name": "MY-REACT-APP",
   "icons": [
     {
-      "src": "/images/icon-b.png",
+      "src": "/images/logo-b.png",
       "type": "image/png",
       "sizes": "512x512"
     }
