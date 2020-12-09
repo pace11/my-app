@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ShimmerDiv from '../../../components/shimmer'
 
-const Container = styled.div`
+const StyledShimmer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   padding: 10px 0;
@@ -14,10 +14,10 @@ const RowShimmer = styled.div`
 
 export default function Shimmer() {
   return (
-    <Container>
+    <StyledShimmer>
       <RowShimmer>
         <ShimmerDiv height="20px" width="100%" />
       </RowShimmer>
-    </Container>
+    </StyledShimmer>
   )
 }

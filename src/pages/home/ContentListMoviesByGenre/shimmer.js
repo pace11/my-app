@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ShimmerDiv from '../../../components/shimmer'
 
-const Container = styled.div`
+const StyledShimmer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
@@ -14,7 +14,7 @@ const RowShimmer = styled.div`
 
 export default function Shimmer() {
   return (
-    <Container>
+    <StyledShimmer>
       {[...Array(3).keys()].map((i) => (
         <RowShimmer key={String(i)}>
           <ShimmerDiv height="250px" width="100%" />
@@ -22,6 +22,6 @@ export default function Shimmer() {
           <ShimmerDiv height="15px" width="60%" />
         </RowShimmer>
       ))}
-    </Container>
+    </StyledShimmer>
   )
 }
