@@ -1,13 +1,10 @@
-# APPS COVID 19
-to monitoring the spread of the corona virus 19
+# MY-APP
+app to Webinar, simple apps to show data movies from  MOVIEDB API
 
 ## LIVE
- - [x] https://flamboyant-brattain-c8274d.netlify.app/
+ - [x] https://lucid-bohr-70b777.netlify.app/
 
 ## FEATURE
- - [x] Progressive Web Apps Support
- - [x] Multilanguage (indonesia, english)
- - [x] Redux with Easy Peasy
+ - [x] React with Hooks => useState, useEffect
  - [x] Styled Component
- - [x] API Service from [Kawal Corona](https://kawalcorona.com/)
- - [x] API Proxy Service from [Cors AnyWhere](https://cors-anywhere.herokuapp.com)
+ - [x] API Service from [The Movie Database API Team](https://developers.themoviedb.org/3)

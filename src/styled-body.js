@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledContainer = styled.div`
+const StyledBodyComponent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,10 +25,14 @@ const StyledChildren = styled.div`
   }
 `
 
+/**
+ *
+ * @param {ReactNode} props.children
+ */
 export default function BodyComponent({ children }) {
   return (
-    <StyledContainer>
+    <StyledBodyComponent>
       <StyledChildren>{children}</StyledChildren>
-    </StyledContainer>
+    </StyledBodyComponent>
   )
 }
