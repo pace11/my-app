@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import theme from '../theme'
 
@@ -19,13 +19,15 @@ const StyledNavigation = styled.div`
   }
 `
 
+/**
+ *
+ * @param {String} props.title
+ */
 function Navigation({ title }) {
   return (
-    <Fragment>
-      <StyledNavigation>
-        <p>{title}</p>
-      </StyledNavigation>
-    </Fragment>
+    <StyledNavigation>
+      <p>{title}</p>
+    </StyledNavigation>
   )
 }
 

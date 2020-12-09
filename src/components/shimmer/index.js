@@ -34,8 +34,6 @@ const StyledShimmer = styled.div`
  * @param {String, Number} props.height
  * @param {String, Number} props.width
  */
-function Shimmer({ height, width }) {
+export default function Shimmer({ height, width }) {
   return <StyledShimmer height={height} width={width} />
 }
-
-export default Shimmer

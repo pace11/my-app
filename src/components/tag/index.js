@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import theme from '../theme'
-// import theme from '../theme'
 
-const Container = styled.div`
+const StyledTag = styled.div`
   height: auto;
   padding: 0;
   margin-bottom: 25px;
 `
 
-const StyledTag = styled.div`
+const TagList = styled.div`
   display: inline-block;
   padding: 0px 8px 4px 8px;
   background: ${(props) =>
@@ -26,19 +25,25 @@ const StyledTag = styled.div`
     props.isSelected ? theme.colors.orange : `black`};
 `
 
-export default function Tag({ items, onClick, data }) {
+/**
+ *
+ * @param {Array, Object} props.items
+ * @param {Number} props.data
+ * @param {Function} props.onClick
+ */
+export default function Tag({ items, data, onClick }) {
   return (
-    <Container>
+    <StyledTag>
       {items &&
         items.map((item) => (
-          <StyledTag
+          <TagList
             key={String(item.id)}
             onClick={() => onClick(item)}
             isSelected={data === item.id}
           >
             {item.name}
-          </StyledTag>
+          </TagList>
         ))}
-    </Container>
+    </StyledTag>
   )
 }

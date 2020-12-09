@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Slider from 'react-slick'
 import theme from '../theme'
 
-const Container = styled.div`
+const StyledImgSlider = styled.div`
   position: relative;
   border-radius: 5px;
   overflow: hidden;
@@ -14,7 +14,7 @@ const Container = styled.div`
   }
 `
 
-const StyledTitle = styled.div`
+const ImgSliderTitle = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -53,15 +53,15 @@ export default function ImgSlider({ items }) {
     <Slider {...settings}>
       {items &&
         items.map((item) => (
-          <Container key={String(item.id)}>
+          <StyledImgSlider key={String(item.id)}>
             <img
               src={`${process.env.REACT_APP_URL_IMG}${item.backdrop_path}`}
-              alt={`${process.env.REACT_APP_URL_IMG}${item.backdrop_path}`}
+              alt={`${item.backdrop_path}`}
             />
-            <StyledTitle>
+            <ImgSliderTitle>
               <p>{item.title}</p>
-            </StyledTitle>
-          </Container>
+            </ImgSliderTitle>
+          </StyledImgSlider>
         ))}
     </Slider>
   )

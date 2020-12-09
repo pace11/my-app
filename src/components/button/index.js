@@ -20,6 +20,12 @@ const StyledButton = styled.button`
   }
 `
 
+/**
+ *
+ * @param {Boolean} props.isLoading
+ * @param {Function} props.onClick
+ * @param {ReactNode} props.children
+ */
 export default function Button({ onClick, children, isLoading }) {
   return (
     <StyledButton isLoading={isLoading} onClick={onClick}>

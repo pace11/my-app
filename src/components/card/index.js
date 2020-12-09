@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '../../components/theme'
 
-const Container = styled.div`
+const StyledCard = styled.div`
   position: relative;
 `
 
-const StyledCard = styled.div`
+const CardImage = styled.div`
   height: 250px;
   cursor: pointer;
   box-sizing: border-box;
@@ -54,30 +54,27 @@ const CardLabelRating = styled.span`
 
 /**
  *
+ * @param {Number} props.rating
  * @param {String} props.imgUrl
+ * @param {String} props.title
+ * @param {String} props.releaseDate
  */
-export default function Card({
-  imgUrl,
-  adult,
-  rating,
-  title,
-  releaseDate,
-}) {
+export default function Card({ rating, imgUrl, title, releaseDate }) {
   return (
-    <Container>
+    <StyledCard>
       {rating !== parseInt(0) && (
         <CardLabelRating>Rating: {rating}</CardLabelRating>
       )}
-      <StyledCard>
+      <CardImage>
         <img
           src={`${process.env.REACT_APP_URL_IMG}${imgUrl}`}
-          alt={`${process.env.REACT_APP_URL_IMG}${imgUrl}`}
+          alt={`${imgUrl}`}
         />
-      </StyledCard>
+      </CardImage>
       <CardTitle>{title}</CardTitle>
       <CardReleaseDate>
         {new Date(releaseDate).toDateString()}
       </CardReleaseDate>
-    </Container>
+    </StyledCard>
   )
 }

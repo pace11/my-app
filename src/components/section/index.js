@@ -30,6 +30,12 @@ const SectionTitle = styled.div`
   }
 `
 
+/**
+ *
+ * @param {String} props.title
+ * @param {String} props.backgroundColor,
+ * @param {ReactNode} props.children
+ */
 function Section({ title, backgroundColor, children }) {
   return (
     <StyledSection backgroundColor={backgroundColor}>
