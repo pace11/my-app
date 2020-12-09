@@ -2,7 +2,7 @@
 app to Webinar, simple apps to show data movies from  MOVIEDB API
 
 ## LIVE
- - [] Coming Soon !!
+ - [x] https://lucid-bohr-70b777.netlify.app/
 
 ## FEATURE
  - [x] React with Hooks => useState, useEffect
