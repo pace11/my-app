@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import theme from '../../components/theme'
 import Layout from '../../layout'
 import Section from '../../components/section'
-import ContentSlider from './ContentSlider'
+import ContentStory from './ContentStory'
 import ContentTag from './ContentTag'
 import ContentListMoviesByGenre from './ContentListMoviesByGenre'
 import {
@@ -13,6 +13,7 @@ import {
 
 export default function Home() {
   const [nowPlaying, setNowPlaying] = useState([])
+  const [nowPlayingId, setNowPlayingId] = useState(0)
   const [tag, setTag] = useState([])
   const [movies, setMovies] = useState([])
   const [selectTag, setSelectTag] = useState(28)
@@ -25,6 +26,33 @@ export default function Home() {
   const [isLoadingNowPlaying, setIsLoadingNowPlaying] = useState(
     false,
   )
+  const [showStoryDetail, setShowStoryDetail] = useState(false)
+  const [timer, setTimer] = useState({
+    second: 1,
+    start: false,
+  })
+
+  useEffect(() => {
+    let myInterval
+    if (timer.start && timer.second <= 6) {
+      myInterval = setInterval(() => {
+        setTimer((prevState) => ({
+          ...prevState,
+          second: prevState.second + 1,
+        }))
+      }, 1000)
+    }
+    return () => {
+      clearInterval(myInterval)
+    }
+  }, [timer])
+
+  useEffect(() => {
+    if (timer.start && timer.second === 5) {
+      setNowPlayingId((nowPlaying) => nowPlaying + 1)
+      setTimer((prevState) => ({ ...prevState, second: 0 }))
+    }
+  }, [timer])
 
   useEffect(() => {
     setIsLoadingNowPlaying(true)
@@ -81,12 +109,33 @@ export default function Home() {
     })
   }
 
+  const HandleClickStoryDetail = (key) => {
+    setNowPlayingId(key)
+    setShowStoryDetail(!showStoryDetail)
+    setTimer((prevState) => ({ ...prevState, start: true }))
+  }
+
+  const HandleCloseStory = () => {
+    setShowStoryDetail(!showStoryDetail)
+    setTimer((prevState) => ({
+      ...prevState,
+      second: 0,
+      start: false,
+    }))
+  }
+
   return (
-    <Layout>
+    <Layout
+      showStoryDetail={showStoryDetail}
+      onClick={() => HandleCloseStory()}
+      items={nowPlaying[nowPlayingId]}
+      percentage={timer && timer.second}
+    >
       <Section title="Now Playing">
-        <ContentSlider
+        <ContentStory
           items={nowPlaying}
           isLoadingSlider={isLoadingNowPlaying}
+          handleClickStoryDetail={HandleClickStoryDetail}
         />
       </Section>
       <Section

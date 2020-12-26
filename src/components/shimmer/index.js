@@ -26,14 +26,21 @@ const StyledShimmer = styled.div`
   width: ${(props) => props.width};
   background-size: 50rem 10rem;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: ${(props) => props.borderRadius || `5px`};
 `
 
 /**
  *
  * @param {String, Number} props.height
  * @param {String, Number} props.width
+ * @param {String} props.borderRadius
  */
-export default function Shimmer({ height, width }) {
-  return <StyledShimmer height={height} width={width} />
+export default function Shimmer({ height, width, borderRadius }) {
+  return (
+    <StyledShimmer
+      height={height}
+      width={width}
+      borderRadius={borderRadius}
+    />
+  )
 }

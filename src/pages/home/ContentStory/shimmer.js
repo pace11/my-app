@@ -4,8 +4,7 @@ import ShimmerDiv from '../../../components/shimmer'
 
 const StyledShimmer = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  padding: 10px 0;
+  grid-template-columns: repeat(6, 1fr);
 `
 
 const RowShimmer = styled.div`
@@ -15,9 +14,11 @@ const RowShimmer = styled.div`
 export default function Shimmer() {
   return (
     <StyledShimmer>
-      <RowShimmer>
-        <ShimmerDiv height="200px" width="100%" />
-      </RowShimmer>
+      {[...Array(6).keys()].map((index) => (
+        <RowShimmer key={String(index)}>
+          <ShimmerDiv height="50px" width="50px" borderRadius="50%" />
+        </RowShimmer>
+      ))}
     </StyledShimmer>
   )
 }

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Navigation from '../components/navigation'
+import ContentStoryDetail from './ContentStoryDetail'
 
 const StyledLayout = styled.div`
   width: 100%;
@@ -17,11 +18,27 @@ const RowContent = styled.div`
  *
  * @param {ReactNode} props.children
  */
-export default function Layout({ children }) {
+export default function Layout({
+  percentage,
+  items,
+  showStoryDetail,
+  onClick,
+  children,
+}) {
   return (
     <StyledLayout>
-      <Navigation />
-      <RowContent>{children}</RowContent>
+      {showStoryDetail ? (
+        <ContentStoryDetail
+          percentage={percentage}
+          onClick={onClick}
+          items={items}
+        />
+      ) : (
+        <Fragment>
+          <Navigation />
+          <RowContent>{children}</RowContent>
+        </Fragment>
+      )}
     </StyledLayout>
   )
 }
